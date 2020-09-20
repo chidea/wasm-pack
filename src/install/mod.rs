@@ -216,7 +216,7 @@ fn prebuilt_url(tool: &Tool, version: &str) -> Result<String, failure::Error> {
         Tool::WasmOpt => {
             Ok(format!(
         //"https://github.com/WebAssembly/binaryen/releases/download/{vers}/binaryen-{vers}-{target}.tar.gz",
-        "https://github.com/chidea/wasm-pack/releases/download/{vers}/binaryen-{vers}-{target}.tar.gz",
+        "https://github.com/chidea/binaryen/releases/download/{vers}/binaryen-{vers}-{target}.tar.gz",
         vers = "version_90",
         target = target,
             ))
