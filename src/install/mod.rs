@@ -172,6 +172,16 @@ fn prebuilt_url(tool: &Tool, version: &str) -> Result<String, failure::Error> {
             Tool::WasmOpt => "x86-linux",
             _ => bail!("Unrecognized target!"),
         }
+    } else if target::LINUX && target::aarch64 {
+        match tool {
+            Tool::WasmOpt => "aarch64-linux",
+            _ => bail!("Unrecognized target!"),
+        }
+    } else if target::LINUX && target::arm {
+        match tool {
+            Tool::WasmOpt => "armhf-linux",
+            _ => bail!("Unrecognized target!"),
+        }
     } else if target::MACOS && target::x86_64 {
         "x86_64-apple-darwin"
     } else if target::WINDOWS && target::x86_64 {
@@ -205,7 +215,8 @@ fn prebuilt_url(tool: &Tool, version: &str) -> Result<String, failure::Error> {
         },
         Tool::WasmOpt => {
             Ok(format!(
-        "https://github.com/WebAssembly/binaryen/releases/download/{vers}/binaryen-{vers}-{target}.tar.gz",
+        //"https://github.com/WebAssembly/binaryen/releases/download/{vers}/binaryen-{vers}-{target}.tar.gz",
+        "https://github.com/chidea/wasm-pack/releases/download/{vers}/binaryen-{vers}-{target}.tar.gz",
         vers = "version_90",
         target = target,
             ))
